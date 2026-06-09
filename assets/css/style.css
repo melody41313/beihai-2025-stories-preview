@@ -626,8 +626,8 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px}
 }
 .finale-content{
   z-index:3;
-  align-self:end;
-  margin-bottom:clamp(36px,7vh,76px);
+  align-self:center;
+  margin-bottom:0;
   padding:24px;
 }
 .finale h2{
@@ -661,6 +661,6 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px}
     min-height:82svh;
   }
   .finale-content{
-    margin-bottom:52px;
+    margin-bottom:0;
   }
 }
