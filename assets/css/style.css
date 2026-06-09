@@ -655,6 +655,9 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px}
   .finale-bg img{
     object-position:center center;
   }
+  .hero-bg img{
+    object-position:center 42%;
+  }
   .hero::after{
     background:linear-gradient(180deg,rgba(3,8,30,.02) 35%,rgba(3,8,30,.68) 100%);
   }
