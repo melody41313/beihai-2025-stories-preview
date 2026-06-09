@@ -646,6 +646,7 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px}
   }
   .finale-content{
     width:min(680px,calc(100% - 48px));
+    transform:translateY(-12vh);
   }
 }
 
