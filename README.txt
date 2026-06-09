@@ -9,7 +9,7 @@
 - 授證證書：assets/images/about/certificate.svg
 - 黃球衣團照：assets/images/about/yellow-team.svg
 - 26-27 團隊照：assets/images/about/next-team.svg
-- 26-27 年度行事曆：assets/images/about/calendar.svg
+- 26-27 年度行事曆：assets/images/about/finale.png
 - 結尾大合照：assets/images/about/finale.svg
 
 若改成 JPG/PNG，請同步修改 index.html 裡的圖片路徑。
