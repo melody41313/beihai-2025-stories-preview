@@ -40,11 +40,43 @@ function renderLegacy(activeIndex = legacyData.length - 1){
   tabs.querySelectorAll("button").forEach(btn => btn.addEventListener("click",()=>renderLegacy(Number(btn.dataset.i))));
 }
 
+let musicPlayer;
+let musicRequested = false;
+
+function setMusicButton(isPlaying){
+  const button = document.querySelector(".music-btn");
+  if(!button) return;
+  button.classList.toggle("is-playing", isPlaying);
+  button.setAttribute("aria-pressed", String(isPlaying));
+  button.setAttribute("aria-label", isPlaying ? "暫停背景音樂" : "播放背景音樂");
+  button.title = isPlaying ? "暫停背景音樂" : "播放背景音樂";
+}
+
+window.onYouTubeIframeAPIReady = function(){
+  musicPlayer = new YT.Player("youtube-music-player", {
+    videoId:"Ip7uh4gbW8k",
+    playerVars:{autoplay:0,controls:0,disablekb:1,loop:1,playlist:"Ip7uh4gbW8k",playsinline:1},
+    events:{
+      onReady:event=>{
+        event.target.setVolume(45);
+        if(musicRequested) event.target.playVideo();
+      },
+      onStateChange:event=>setMusicButton(event.data === YT.PlayerState.PLAYING),
+      onError:()=>{
+        const button = document.querySelector(".music-btn");
+        setMusicButton(false);
+        if(button) button.title = "這首音樂目前無法播放";
+      }
+    }
+  });
+};
+
 function setup(){
   renderLegacy();
 
   const progress = document.querySelector(".progress");
   const topBtn = document.querySelector(".top-btn");
+  const musicBtn = document.querySelector(".music-btn");
   const heroBg = document.querySelector(".hero-bg");
   const heroCard = document.querySelector(".hero-card");
   const navLinks = [...document.querySelectorAll(".nav a")];
@@ -68,6 +100,15 @@ function setup(){
   }
   window.addEventListener("scroll", onScroll, {passive:true});
   topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+  musicBtn?.addEventListener("click",()=>{
+    if(!musicPlayer?.getPlayerState){
+      musicRequested = true;
+      return;
+    }
+    const isPlaying = musicPlayer.getPlayerState() === YT.PlayerState.PLAYING;
+    musicRequested = !isPlaying;
+    isPlaying ? musicPlayer.pauseVideo() : musicPlayer.playVideo();
+  });
 
   if(heroCard){
     window.addEventListener("mousemove",(e)=>{
