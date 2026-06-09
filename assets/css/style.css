@@ -90,6 +90,7 @@ h2{font-size:clamp(34px,7vw,66px);line-height:1.04;letter-spacing:-.05em;color:v
 .ink-card{flex:0 0 min(84vw,380px);scroll-snap-align:center;background:#fff;border-radius:26px;padding:12px;box-shadow:0 12px 34px rgba(16,25,75,.09);transition:transform .25s ease,box-shadow .25s ease}
 .ink-card:hover{transform:translateY(-5px);box-shadow:0 24px 58px rgba(16,25,75,.16)}
 .ink-card img{border-radius:20px;width:100%;aspect-ratio:3/4;object-fit:cover}
+.swipe-hint{display:none}
 
 /* Stories */
 .story-list{display:grid;gap:14px}
@@ -580,6 +581,32 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px}
   display:block;
 }
 @media (max-width:820px){
+  .ink-strip{
+    padding-right:44px;
+    scroll-padding-left:18px;
+    scrollbar-width:none;
+  }
+  .ink-strip::-webkit-scrollbar{
+    display:none;
+  }
+  .ink-card{
+    flex-basis:calc(100vw - 94px);
+    scroll-snap-align:start;
+  }
+  .swipe-hint{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:8px;
+    margin:10px 8px 0 0;
+    color:var(--pink);
+    font-size:13px;
+    font-weight:1000;
+  }
+  .swipe-hint span{
+    display:inline-block;
+    animation:swipeHint 1.4s ease-in-out infinite;
+  }
   .story summary{
     grid-template-columns:82px 1fr auto !important;
     padding:14px !important;
@@ -592,6 +619,11 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px}
   .story summary::after{
     grid-column:auto !important;
   }
+}
+
+@keyframes swipeHint{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(7px)}
 }
 
 /* Desktop full-bleed hero and finale */
