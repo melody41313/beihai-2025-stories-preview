@@ -105,7 +105,7 @@ h2{font-size:clamp(34px,7vw,66px);line-height:1.04;letter-spacing:-.05em;color:v
 }
 .details-toggle summary::-webkit-details-marker{display:none}
 .agenda{padding:14px;background:#fff;animation:softDrop .35s ease both}
-.agenda-row{display:grid;grid-template-columns:88px 1fr minmax(140px,230px);gap:14px;align-items:center;padding:12px 14px;border-radius:16px}
+.agenda-row{display:grid;grid-template-columns:120px 1fr minmax(140px,230px);gap:14px;align-items:center;padding:12px 14px;border-radius:16px}
 .agenda-row:nth-child(even){background:rgba(16,25,75,.04)}
 .agenda-row.highlight{background:linear-gradient(90deg,rgba(255,79,163,.16),rgba(255,225,92,.18))}
 .time{font-weight:1000;color:var(--navy);font-variant-numeric:tabular-nums}.agenda-title{font-weight:900}.owner{font-size:14px;color:var(--muted)}
@@ -237,7 +237,7 @@ footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px}
   .hero{min-height:82svh}.hero-bg{background-position:center top}.hero-card{margin-bottom:34px;border-radius:26px}
   .float-layer span:nth-child(5){display:none}.float-layer span{opacity:.55}
   .moment-grid{grid-template-columns:repeat(2,1fr)}
-  .agenda-row{grid-template-columns:72px 1fr;gap:6px 10px;padding:11px 10px}
+  .agenda-row{grid-template-columns:105px 1fr;gap:6px 10px;padding:11px 10px}
   .owner{grid-column:2;font-size:12px}.time,.agenda-title{font-size:14px}
   .story summary{grid-template-columns:54px 1fr}.story summary::after{grid-column:2}
   .memory-bridge{min-height:360px}.memory-copy{padding:26px}
